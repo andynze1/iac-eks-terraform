@@ -14,7 +14,7 @@ module "eks" {
   enable_irsa = true
 
   eks_managed_node_group_defaults = {
-    disk_size = 50
+    disk_size = 40
   }
 
   eks_managed_node_groups = {
@@ -27,7 +27,7 @@ module "eks" {
         role = "general"
       }
 
-      instance_types = ["t3.small"]
+      instance_types = ["t3.medium"]
       capacity_type  = "ON_DEMAND"
     }
 
@@ -88,7 +88,7 @@ data "aws_eks_cluster_auth" "default" {
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.default.endpoint
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-  # token                  = data.aws_eks_cluster_auth.default.token
+  # token                = data.aws_eks_cluster_auth.default.token
 
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"

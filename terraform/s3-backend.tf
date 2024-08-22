@@ -1,10 +1,11 @@
 # Root main.tf
 terraform {
   backend "s3" {
-    bucket  = "dml-terraform-clsuter"
-    key     = "environment"
+    bucket  = "dml-terraform-cluster"
+    key     = "dev"
     region  = "us-east-1"
     encrypt = true
-    #    dynamodb_table = "ndcc-terraform-state-lock-dynamo"
+# For State Locking
+    # dynamodb_table = "dml-terraform-state-table"
   }
 }
