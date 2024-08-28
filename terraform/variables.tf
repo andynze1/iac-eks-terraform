@@ -8,10 +8,10 @@ variable "cluster_version" {
   default = 1.25
 }
 
-variable "aws_region" {
-  type    = string
-  default = "us-east-1"
-}
+# variable "aws_region" {
+#   type    = string
+#   default = "us-east-1"
+# }
 
 variable "availability_zones" {
   type    = list(any)
@@ -77,7 +77,7 @@ variable "addons" {
 
 ################################
 variable "public_subnet_id" {
-  type = string
+  type    = string
   default = "module.vpc.public_subnets[0]"
 }
 

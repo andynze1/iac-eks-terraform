@@ -4,7 +4,7 @@ resource "aws_instance" "jenkins_server" {
   associate_public_ip_address = true
   key_name                    = "${var.linux-keypair}-keypair"
   vpc_security_group_ids      = [aws_security_group.cluster_sg.id] # [var.security_group_id]
-  subnet_id                   = module.vpc.public_subnets[0] # var.public_subnet_id # Single public subnet ID
+  subnet_id                   = module.vpc.public_subnets[0]       # var.public_subnet_id # Single public subnet ID
   user_data                   = file("${path.module}/app-scripts/install.sh")
   tags = {
     Name = "jenkins-server"

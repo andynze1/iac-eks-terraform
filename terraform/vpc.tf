@@ -30,7 +30,7 @@ module "vpc" {
 
 resource "aws_security_group" "cluster_sg" {
   vpc_id = module.vpc.vpc_id
-  name   =  "${var.vpc_id}-security-group"
+  name   = "${var.vpc_id}-security-group"
 
   dynamic "ingress" {
     for_each = var.security_group_rules

@@ -5,7 +5,7 @@ terraform {
     key     = "dev"
     region  = "us-east-1"
     encrypt = true
-# For State Locking
+    # For State Locking
     # dynamodb_table = "dml-terraform-state-table"
   }
 }
